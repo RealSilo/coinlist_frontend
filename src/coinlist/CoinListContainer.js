@@ -8,6 +8,7 @@ import CoinList from './CoinList';
 const query = gql`
   query {
     coins {
+      id
       currency_type
       name
       symbol

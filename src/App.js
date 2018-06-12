@@ -5,6 +5,7 @@ import { ApolloProvider } from 'react-apollo';
 import { createHttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
+import CoinContainer from './coin/CoinContainer';
 import CoinListContainer from './coinlist/CoinListContainer';
 
 import logo from './logo.svg';
@@ -27,6 +28,7 @@ class App extends Component {
           <p className="App-intro">
             <Router>
               <div>
+                <Route exact path='/coins/:id' component={CoinContainer} />
                 <Route exact path='/' component={CoinListContainer} />
               </div>
             </Router>
