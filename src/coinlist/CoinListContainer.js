@@ -34,8 +34,6 @@ class CoinListContainer extends Component {
       return (<div></div>);
     }
 
-    console.log(this.props.data.coins);
-
     return (
       <div>
         <CoinList
