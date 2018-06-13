@@ -3,14 +3,23 @@ import { withRouter } from 'react-router-dom';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 
-import CoinDetail from './CoinDetail';
+import Coin from './Coin';
+import CommentList from '../commentList/CommentList';
+import CreateCommentContainer from '../createComment/CreateCommentContainer';
 
-const query = gql`
-  query {
-    coin(id: 1) {
+const CoinQuery = gql`
+  query CoinQuery($id: ID!) {
+    coin(id: $id) {
       currency_type
       name
       symbol
+      comments {
+        id
+        body
+        user {
+          email
+        }
+      }
     }
   }`
 ;
@@ -34,12 +43,25 @@ class CoinContainer extends Component {
 
     return (
       <div>
-        <CoinDetail
+        <Coin
           coin={this.props.data.coin}
+        />
+        <CommentList 
+          comments={this.props.data.coin.comments}
+        />
+        <CreateCommentContainer
+          commentableId={this.props.data.coin.id}
+          commentableType='Comment'
         />
       </div>
     )
   }
 };
 
-export default withRouter(graphql(query)(CoinContainer));
+export default withRouter(graphql(CoinQuery, {
+  options: (ownProps) => ({
+    variables: {
+      id: ownProps.match.params.id
+    }
+  })
+})(CoinContainer));

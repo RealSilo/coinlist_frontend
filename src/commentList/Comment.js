@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Comment = props => (
   <div>
-    {props.comment.symbol} {props.comment.name} {props.comment.currencyType}
+    {props.comment.user.email} {props.comment.body}
   </div>
 )
 

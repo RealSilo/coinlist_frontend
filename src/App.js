@@ -6,7 +6,7 @@ import { createHttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
 import CoinContainer from './coin/CoinContainer';
-import CoinListContainer from './coinlist/CoinListContainer';
+import CoinListContainer from './coinList/CoinListContainer';
 
 import logo from './logo.svg';
 import './App.css';
@@ -22,7 +22,6 @@ class App extends Component {
       <ApolloProvider client={client}>
         <div className="App">
           <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">Coinlist</h1>
           </header>
           <p className="App-intro">
