@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import gql from 'graphql-tag';
-import { graphql } from 'react-apollo';
+import { graphql, connect } from 'react-apollo';
 
 import Coin from './Coin';
 import CommentList from '../commentList/CommentList';

@@ -28,6 +28,7 @@ class App extends Component {
             <Router>
               <div>
                 <Route exact path='/coins/:id' component={CoinContainer} />
+                <Route exact path='/coins' component={CoinListContainer} />
                 <Route exact path='/' component={CoinListContainer} />
               </div>
             </Router>

@@ -20,11 +20,7 @@ class CoinListContainer extends Component {
     super(props);
 
     const initialState = {
-      coins: [
-        { symbol: 'BTC', name: 'Bitcoin', currencyType: 'crypto' },
-        { symbol: 'ETH', name: 'Ethereum', currencyType: 'crypto' },
-        { symbol: 'USD', name: 'US Dollar', currencyType: 'currency' }
-      ],
+      coins: [],
     };
 
     this.state = { ...initialState };
@@ -32,7 +28,7 @@ class CoinListContainer extends Component {
 
   render() {
     if (!this.props.data || !this.props.data.coins) {
-      return (<div></div>);
+      return (<div>Loading</div>);
     }
 
     return (

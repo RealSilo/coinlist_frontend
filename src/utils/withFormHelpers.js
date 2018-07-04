@@ -4,13 +4,14 @@ const withFormHelpers = (WrappedComponent) => {
   return class extends Component {
     constructor(props) {
       super(props);
-
       const initialState = {
         form: {},
+        errors: {},
       };
+      
+      this.handleInputChange = this.handleInputChange.bind(this);
 
       this.state = initialState;
-      this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     handleInputChange(e) {
@@ -30,7 +31,8 @@ const withFormHelpers = (WrappedComponent) => {
 
     render() {
       return <WrappedComponent
-        form={this.state.form}
+        {...this.props}
+        withFormState={this.state}
         handleInputChange={this.handleInputChange}
       />;
     }
